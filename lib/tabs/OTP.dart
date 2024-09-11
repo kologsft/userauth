@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../formfields.dart';
-import '../main.dart';
+import '../routes.dart';
 
 class VerifyOTP extends StatefulWidget {
   const VerifyOTP({super.key});

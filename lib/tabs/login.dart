@@ -161,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 const Padding(
                   padding: EdgeInsets.only(top: 30.0),
-                  child: Text('~ Or Sign In with ~', style: TextStyle(fontSize: 20),),
+                  child: Text('~ Or Sign In with ~', style: TextStyle(fontSize: 16),),
                 ),
                 //SocialButton.appleButtonCircle((){})
                 const SocialButton(),

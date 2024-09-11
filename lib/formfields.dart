@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_social_button/flutter_social_button.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MyTextField extends StatelessWidget {
   final String labelText;
@@ -71,24 +72,28 @@ class MyButton extends StatelessWidget {
 }
 
 class SocialButtons extends StatelessWidget {
-  final ButtonType buttonType;
-  final bool isMini;
+  final FaIcon iconData;
+  final Color iconColor;
+  final int iconSize;
   final Function () onTap;
   const SocialButtons(
       {
         super.key,
-        required this.buttonType,
-        required this.isMini,
-        required this.onTap
+        required this.iconData,
+        required this.iconColor,
+        required this.iconSize,
+        required this.onTap,
+        required IconData icon,
       }
       );
 
   @override
   Widget build(BuildContext context) {
-    return  FlutterSocialButton(
-      onTap: onTap,
-      mini: isMini,
-      buttonType: buttonType,
+    return IconButton(
+      color: iconColor,
+        iconSize: iconSize.toDouble(),
+        onPressed: onTap,
+        icon: iconData
     );
   }
 }
@@ -103,29 +108,35 @@ class SocialButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          SocialButtons(
-              buttonType: ButtonType.google,
-              isMini: true,
-              onTap: (){}
+          IconButton(
+              onPressed: (){},
+              icon: const FaIcon(FontAwesomeIcons.googlePlus,color: Colors.red,)
           ),
-          //const SizedBox(width: 20),
-          SocialButtons(
-              buttonType: ButtonType.facebook,
-              isMini: true,
-              onTap: (){}
-          ),
-          //const SizedBox(width: 20),
-          SocialButtons(
-              buttonType: ButtonType.github,
-              isMini: true,
-              onTap: (){}
-          ),
-          SocialButtons(
-              buttonType: ButtonType.apple,
-              isMini: true,
-              onTap: (){}
-          ),
-          //const SizedBox(width: 20),
+
+          const SizedBox(width: 10),
+
+          IconButton(
+              onPressed: (){},
+              icon: const FaIcon(FontAwesomeIcons.facebook,color: Colors.blue,)),
+
+          const SizedBox(width: 10),
+
+          IconButton(
+              onPressed: (){},
+              icon: const FaIcon(FontAwesomeIcons.apple, color: Colors.grey,)),
+
+          const SizedBox(width: 10),
+
+          IconButton(
+              onPressed: (){},
+              icon: const FaIcon(FontAwesomeIcons.github, color: Colors.blueGrey,)),
+
+          const SizedBox(width: 10),
+
+          IconButton(
+              onPressed: (){},
+              icon: const FaIcon(FontAwesomeIcons.docker)),
+
         ],
       ),
     );
