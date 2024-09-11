@@ -71,32 +71,32 @@ class MyButton extends StatelessWidget {
   }
 }
 
-class SocialButtons extends StatelessWidget {
-  final FaIcon iconData;
-  final Color iconColor;
-  final int iconSize;
-  final Function () onTap;
-  const SocialButtons(
-      {
-        super.key,
-        required this.iconData,
-        required this.iconColor,
-        required this.iconSize,
-        required this.onTap,
-        required IconData icon,
-      }
-      );
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      color: iconColor,
-        iconSize: iconSize.toDouble(),
-        onPressed: onTap,
-        icon: iconData
-    );
-  }
-}
+// class SocialButtons extends StatelessWidget {
+//   final FaIcon iconData;
+//   final Color iconColor;
+//   final int iconSize;
+//   final Function () onTap;
+//   const SocialButtons(
+//       {
+//         super.key,
+//         required this.iconData,
+//         required this.iconColor,
+//         required this.iconSize,
+//         required this.onTap,
+//         required IconData icon,
+//       }
+//       );
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return IconButton(
+//       color: iconColor,
+//         iconSize: iconSize.toDouble(),
+//         onPressed: onTap,
+//         icon: iconData
+//     );
+//   }
+// }
 
 class SocialButton extends StatelessWidget {
   const SocialButton({super.key});

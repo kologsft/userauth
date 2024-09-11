@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:userauth/formfields.dart';
+import 'package:userauth/routes.dart';
+
 
 class PaymentMethod extends StatefulWidget {
   const PaymentMethod({super.key});
@@ -20,7 +22,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
         child: SingleChildScrollView(
           child: ConstrainedBox(
             constraints: const BoxConstraints(
-              maxWidth: 450, // Ensures the content is constrained within the available width
+              maxWidth: 450,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,9 +56,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                     },
                   ),
                 ),
-               // const SizedBox(height: 20),
-                //const Text('More Payment Ways', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                // Paypal Option
+
                 ListTile(
                   title: const Text('Paypal'),
                   leading: SvgPicture.asset(
@@ -122,7 +122,28 @@ class _PaymentMethodState extends State<PaymentMethod> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    MyButton(text: 'Pay now', color: Colors.green, onPressed: (){}, width: 400, height: 40),
+                    MyButton(
+                      text: 'Pay now',
+                      color: Colors.green,
+                      onPressed: () {
+                        // Use a Builder to get the correct Scaffold context
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (context) =>
+                              //height: 300,
+                           const Billing(),
+
+                          constraints: const BoxConstraints(
+                            maxWidth: 600,
+                            //maxHeight: 900,
+                          ),
+                          elevation: 2,
+                        );
+                      },
+                      width: 400,
+                      height: 40,
+                    )
+
                   ],
                 )
               ],
