@@ -59,32 +59,51 @@ class CreditCard extends StatelessWidget {
               ),
               const SizedBox(height: 50,),
 
-              const Row(
-                children: [
-                  Text('BILLING ADDRESS', style: TextStyle(letterSpacing: 2, fontSize: 16, color: Colors.black87),),
-                ],
-              ),
+              // const Row(
+              //   children: [
+              //     Text('BILLING ADDRESS', style: TextStyle(letterSpacing: 2, fontSize: 16, color: Colors.black87),),
+              //   ],
+              // ),
 
               Container(
                 decoration:  BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
                   color: Colors.white,
                 ),
-                child: const Padding(
+                child:  Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Column(
                     children: [
-                      BillingTextFields(hintText: 'Commercial street', prefixText: 'Street', padding: 60,),
-                      BillingTextFields(hintText: 'KologSoft', prefixText: 'Street', padding: 60,),
-                      BillingTextFields(hintText: 'Bolgatanga', prefixText: 'City/Town', padding: 35,),
-                      BillingTextFields(hintText: '0245 xxx xxx', prefixText: 'Phone', padding: 60,),
-                      BillingTextFields(hintText: 'Upper East', prefixText: 'Region', padding: 60,),
-                      BillingTextFields(hintText: 'Ghana', prefixText: 'Country', padding: 55,),
+                      ListView(
+                        shrinkWrap: true,
+                        children: const [
+                          ExpansionTile(
+                            title: Text('BILLING ADDRESS', style: TextStyle(letterSpacing: 2, fontSize: 16, color: Colors.black87),),
+                            //leading: Icon(Icons.arrow_drop_down),
+                            children: [
+                              ListTile(title: BillingTextFields(hintText: 'Commercial street', prefixText: 'Street', padding: 60,)),
+                              ListTile(title: BillingTextFields(hintText: 'KologSoft', prefixText: 'Street', padding: 60,)),
+                              ListTile(title: BillingTextFields(hintText: 'Bolgatanga', prefixText: 'City/Town', padding: 60,)),
+                              ListTile(title: BillingTextFields(hintText: '0245 xxx xxx', prefixText: 'Phone', padding: 60,)),
+                              ListTile(title: BillingTextFields(hintText: 'Upper East', prefixText: 'Region', padding: 60,)),
+                              ListTile(title: BillingTextFields(hintText: 'Ghana', prefixText: 'Country', padding: 60,)),
+                             // ListTile(title: BillingTextFields(hintText: 'Commercial street', prefixText: 'Street', padding: 60,))
+                            ],
+                          )
 
+                        ],
+                      ),
+                      // BillingTextFields(hintText: 'Commercial street', prefixText: 'Street', padding: 60,),
+                      // BillingTextFields(hintText: 'KologSoft', prefixText: 'Street', padding: 60,),
+                      // BillingTextFields(hintText: 'Bolgatanga', prefixText: 'City/Town', padding: 35,),
+                      // BillingTextFields(hintText: '0245 xxx xxx', prefixText: 'Phone', padding: 60,),
+                      // BillingTextFields(hintText: 'Upper East', prefixText: 'Region', padding: 60,),
+                      // BillingTextFields(hintText: 'Ghana', prefixText: 'Country', padding: 55,),
                     ],
                   ),
                 ),
               ),
+
               const SizedBox(height: 20,)
             ],
           ),
